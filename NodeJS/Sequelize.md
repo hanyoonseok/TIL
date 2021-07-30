@@ -1,7 +1,6 @@
-# Sequelize
-</br>
-## 설치
-</br>
+# Sequelize    
+## 설치  
+
 ```javascript
 npm install sequelize sequelize-cli
 ```
