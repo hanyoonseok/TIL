@@ -35,7 +35,8 @@ sequelize init
   }
 }
 ```  
-개발시에는 `"development"`의 값을 수정하여 테스트 한다. `dotenv`모듈을 설치하여 config.env파일로 환경변수를 관리하여 github에의 노출을 피하자  
+개발시에는 `"development"`의 값을 수정하여 테스트 한다.  
+`dotenv`모듈을 설치하여 config.env파일로 환경변수를 관리하여 github에의 노출을 피하고 싶다면 config.json을 config.js로 바꾸자. [바꾸는법](https://velog.io/@hyunju-song/sequelize%EB%A1%9C-DB%EC%85%8B%ED%8C%85%ED%95%A0-%EB%95%8C-%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98-%ED%8C%8C%EC%9D%BC-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 "config.js로 바꾸는 법 + dotenv 사용법")    
 2.  models/index.js
 ```javascript
 let sequelize;
@@ -71,4 +72,4 @@ models.sequelize.sync().then( () => {
   console.log(err);
 }
 ```  
-`sync()`를 통해 mysql에 연결
+`sync()`를 통해 mysql에 연결    
