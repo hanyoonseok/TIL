@@ -44,8 +44,30 @@ const items = await Item.findAll({
     ]
  }
 }
-```형태로 출력된다.  
-`order`옵션은 [[standard, dir]]형태로 standard 열을 기준으로 dir방향으로 정렬한다는 뜻이다. `ex) order:[['id','DESC']]` id를 기준으로 내림차순  
+```
+형태로 출력된다.  
+`order`옵션은 `[[standard, dir]]`형태로 standard 열을 기준으로 dir방향으로 정렬한다는 뜻이다. `ex) order:[['id','DESC']]` id를 기준으로 내림차순  
 `limit`옵션은 value값 만큼만 출력한다. `ex) limit:10` 10개까지만 출력.    
 
-## Sequelize 연산자
+## Sequelize 연산자  
+```javascript
+const {Op} = require('sequelize')
+```
+c1|c2|c3
+:--:|:--:|:--:
+[Op.and]|{a:5}|AND(a=5)
+[Op.or]|[{a:5},{a:6}]|(a=5 Or a=6)
+[Op.gt]|6|>6
+[Op.gte]|6|>=6
+[Op.lt]|10|<10
+[Op.lte]|10|<=10
+[Op.ne]|20|!=20
+[Op.eq]|3|=3
+[Op.not]|true|is not true
+[Op.between]|[6,10]|between 6 and 10
+[Op.notBetween]|[11,15]|not between 11 and 15
+[Op.in]|[1,2]|IN[1,2]
+[Op.notIn]|[1,2]|NOT IN[1,2]
+[Op.like]|'%hat'|LIKE '%hat'  
+
+[참고](https://velog.io/@cadenzah/sequelize-document-2)
