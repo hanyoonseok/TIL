@@ -102,7 +102,8 @@ body:{
   'id':'testid2',
   'name':'testname2'
 }
-Item.update({id:body.id},{where:{id:'testid}}) //id가 'testid'인 행의 id를 body.id(testid2)로 수정 
+Item.update({id:body.id},{where:{id:'testid}}) //id가 'testid'인 행의 id를 body.id(testid2)로 수정
+  
 Item.update(body,where:{id:'testid'}) //id가 'testid'인 행의 id와 name을 각각 'testid2','testname2'로 수정
 ```    
 ## Delete
