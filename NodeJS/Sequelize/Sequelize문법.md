@@ -13,6 +13,10 @@ User.findById(99).then((result)=>{
   //User테이블에서 ID가 99인 행을 찾겠다.
   //존재하지 않으면 null 반환
 })
+
+const UserCnt = User.count({
+  where:{id:99} //id가 99인 행의 개수를 UserCnt에 담겠다
+})
 ```    
 ## Sequelize 옵션들
 ```javascript
@@ -69,5 +73,39 @@ c1|c2|c3
 [Op.in]|[1,2]|IN[1,2]
 [Op.notIn]|[1,2]|NOT IN[1,2]
 [Op.like]|'%hat'|LIKE '%hat'  
+예시  
+```javascript
+const items = await Item.findAll({
+      where:{status:{[Op.lte]:1}} //status가 1이하인 Item만 추출
+})
+```  
+[참고](https://velog.io/@cadenzah/sequelize-document-2)      
 
-[참고](https://velog.io/@cadenzah/sequelize-document-2)
+# Sequelize CRUD  
+## Create  
+```javascript
+body:{
+  'id':'testid',
+  'name':'testname'
+}
+
+Item.create({
+  id:body.id,
+  name:body.name,
+})
+
+Item.create(body) //이 방식으로 생성하면 body 안의 key 값과 일치하는 열에 body의 value 값이 주어지며 생성
+```    
+## Update
+```javascript
+body:{
+  'id':'testid2',
+  'name':'testname2'
+}
+Item.update({id:body.id},{where:{id:'testid}}) //id가 'testid'인 행의 id를 body.id(testid2)로 수정 
+Item.update(body,where:{id:'testid'}) //id가 'testid'인 행의 id와 name을 각각 'testid2','testname2'로 수정
+```    
+## Delete
+```javascript
+Item.destroy({where:{id:'testid'}}) //id가 'testid'인 행을 삭제
+```
