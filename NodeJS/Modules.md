@@ -21,7 +21,7 @@ mysql2는 mysql을 async/await 방식으로 구현할 수 있도록 해주는 �
 로컬환경에 mysql이 설치되어있다는 가정하에 시작한다.      
 
 # dotenv  
-dotenv는 환경변수를 파일에 저장할 수 있도록 해주는 모듈이다.    
+dotenv는 환경변수를 파일에 저장할 수 있도록 해주는 모듈이다. .env파일은 key=value의 형태로 이루어져있어야 하고, `gitignore`에 `.env` 나 `*.env`를 추가하여 환경변수의 노출을 방지할 수 있다.    
 ### 설치  
 `npm install dotenv`    
 ### 시작  
