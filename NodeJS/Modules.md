@@ -66,7 +66,8 @@ Key|Description
 `dest`or`storage`|파일이 저장될 위치
 `fileFilter`|어떤 파일을 허용할지 제어하는 함수
 `limits`|업로드된 데이터의 한도
-`preservePath`|파일의 base name 대신 보존할 파일의 전체 경로  
+`preservePath`|파일의 base name 대신 보존할 파일의 전체 경로
+  
 [참고](https://velog.io/@new_wisdom/Node.js-11-Multer)      
 
 # nanoid  
