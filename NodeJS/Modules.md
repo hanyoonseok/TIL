@@ -50,3 +50,9 @@ const development={
 }
 ```  
 **다른경로의 .env 파일을 사용하고싶다면 `require('dotenv').config({path:'경로'})` 를 선언 후 사용하면된다.**      
+
+# multer  
+express는 사용자가 업로드한 파일을 받아서 저장하는 기본 기능을 제공하지 않기 때문에 이를 관리하기 위해서는 별도의 모듈을 사용해주어야 한다.    
+### 설치  
+`npm install multer`    
+### 시작  
