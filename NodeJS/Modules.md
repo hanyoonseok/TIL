@@ -52,13 +52,22 @@ const development={
 **다른경로의 .env 파일을 사용하고싶다면 `require('dotenv').config({path:'경로'})` 를 선언 후 사용하면된다.**      
 
 # multer  
-express는 사용자가 업로드한 파일을 받아서 저장하는 기본 기능을 제공하지 않기 때문에 이를 관리하기 위해서는 별도의 모듈을 사용해주어야 한다.    
+이미지는 보통 input[type=file] 태그와 form 태그를 통해서 업로드되고 이때 form의 인코딩 타입은 multipart/form-data로 되어있다. express는 사용자가 업로드한 파일을 받아서 저장하는 기본 기능을 제공하지 않기 때문에 이를 관리하기 위해서는 별도의 모듈을 사용해주어야 한다. `multer`는 multipart/form-data로 들어온 이미지를 처리하는 모듈로, 지정한 곳에 이미지 저장이 가능하다. 클라이언트로부터 전달받는 데이터에 파일이 포함되는 경우, req 객체에 file 속성이 추가된다. 파일이 여러개라면 files 속성이 추가된다.    
 ### 설치  
 `npm install multer`    
 ### 시작  
 ```javascript
 const multer = require('multer')
-```      
+```    
+### 옵션  
+c1|c2
+:--:|:--:
+Key|Description
+`dest`or`storage`|파일이 저장될 위치
+`fileFilter`|어떤 파일을 허용할지 제어하는 함수
+`limits`|업로드된 데이터의 한도
+`preservePath`|파일의 base name 대신 보존할 파일의 전체 경로  
+[참고](https://velog.io/@new_wisdom/Node.js-11-Multer)      
 
 # nanoid  
 `nanoid`는 랜덤 문자열을 생성해주는 라이브러리이다. UUID보다 빠르다는 장점이있다.
