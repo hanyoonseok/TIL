@@ -56,3 +56,17 @@ express는 사용자가 업로드한 파일을 받아서 저장하는 기본 기
 ### 설치  
 `npm install multer`    
 ### 시작  
+```javascript
+const multer = require('multer')
+```      
+
+# nanoid  
+`nanoid`는 랜덤 문자열을 생성해주는 라이브러리이다. UUID보다 빠르다는 장점이있다.
+### 설치  
+`npm install nanoid`    
+### 시작  
+```javascript
+const {nanoid} =require('nanoid')
+const randomstring = nanoid(10) //길이가 10인 랜덤문자열 생성
+console.log(randomstring)
+```    
