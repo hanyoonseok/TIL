@@ -70,10 +70,10 @@ Key|Description
 `preservePath`|파일의 base name 대신 보존할 파일의 전체 경로
   
 [참고1](https://velog.io/@new_wisdom/Node.js-11-Multer)  
-[참고2](https://junspapa-itdev.tistory.com/27)      
-
+[참고2](https://junspapa-itdev.tistory.com/27)
+      
 # nanoid  
-`nanoid`는 랜덤 문자열을 생성해주는 라이브러리이다. UUID보다 빠르다는 장점이있다.
+`nanoid`는 랜덤 문자열을 생성해주는 라이브러리이다. UUID보다 빠르다는 장점이있다.    
 ### 설치  
 `npm install nanoid`    
 ### 시작  
@@ -81,4 +81,17 @@ Key|Description
 const {nanoid} =require('nanoid')
 const randomstring = nanoid(10) //길이가 10인 랜덤문자열 생성
 console.log(randomstring)
-```    
+```
+      
+# moment  
+`moment`는 날짜 데이터들을 아주 유연하게 변경 및 비교, 계산까지 해주는 모듈이다.    
+### 설치
+`npm install moment`    
+### 시작  
+```javascript
+const moment = require('moment')
+moment() // Tue Oct 03 2021 14:41:08 GMT+0900
+//형식 지정
+moment().format('YYYY-MM-DD HH:mm:ss') //2021-08-15 14:41:08
+```  
+[참고](http://devstory.ibksplatform.com/2018/01/nodejs-momentjs.html)
