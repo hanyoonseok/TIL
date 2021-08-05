@@ -95,3 +95,30 @@ moment() // Tue Oct 03 2021 14:41:08 GMT+0900
 moment().format('YYYY-MM-DD HH:mm:ss') //2021-08-15 14:41:08
 ```  
 [참고](http://devstory.ibksplatform.com/2018/01/nodejs-momentjs.html)
+      
+# jsonwebtoken
+선택적 서명 및 선택적 암호화를 사용하여 데이터를 만들기 위한 인터넷 표준이다.  
+### 설치
+`npm install jsonwebtoken`    
+### 사용 이유
+1. 사용자가 자신의 비밀 값으로 서버에 로그인하게 되면, 서버는 jwt를 리턴. token을 인증값으로 사용하여 보안 이슈를 막을 수 있음.
+2. 인코딩된 사이즈가 작아서 http와 html 환경에서 사용하기 좋음.
+3. JSON parser는 대부분의 프로그래밍이 지원하기 때문에 만들기 쉬움.    
+### 사용법
+```javascript
+const jwt = require('jsonwebtoken')
+
+//토큰 생성
+const token = jwt.sign({sub:'uuid'}, 'secret_key');
+
+//decoding
+const decoded = jwt.verify(token, 'secret_key');
+console.log(decoded.sub) //실행결과:'uuid'
+```    
+### 옵션
+`expiresIn`옵션으로 만료시간을 정할 수 있다.
+```javascript
+const token = jwt.sign(payload,'secret_key',{
+  expiresIn:24h
+}) //expires In 24 hours
+```
