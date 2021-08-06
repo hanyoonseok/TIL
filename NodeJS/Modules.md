@@ -122,3 +122,71 @@ const token = jwt.sign(payload,'secret_key',{
   expiresIn:24h
 }) //expires In 24 hours
 ```
+      
+# session
+> 자주 변하는 데이터를 저장해주는 서버 사이드의 데이터 저장 방식. 쿠키와 달리 서버에 데이터를 저장하고 웹 브라우저는 session id만을 가지고 있기 때문에 쿠키보다 안전함.    
+### 설치
+`npm install express-session`  
+express-session만으로는 제대로 된 기능 제공할 수 없음. mysql을 저장소로 하는 `express-mysql-session`도 깔아주어야 함  
+`npm install express-mysql-session`    
+### 시작
+```javascript
+const app = express()
+const session = require('express-session')
+app.use(session({
+  secret:'sessionsecret' //반드시 필요한 옵션. 세션을 해당 값으로 암호화
+  resave:false, //세션이 변경되지 않아도 계속 덮어쓰기 됨. default 값은 true이나, false를 권장
+  saveUninitialized:true, //세션이 저장되기 전에 uninitialized 상태로 미리 만들어 저장
+})
+```    
+### 사용
+`req.session.세션명 = 세션value`  
+
+```javascript
+//세션 생성
+router.post('/', (req,res)=>{
+  req.session.userid = req.body.id
+  console.log(req.session.userid)
+})
+
+//세션 삭제
+req.session.destroy((err)=>{
+  //여기선 session에 접근 불가
+})
+
+//세션 저장
+req.session.save((err)=>{
+})
+```    
+### 예시
+```javascript
+//로그인 api
+var sess = req.session;
+...
+sess.username = req.body.username;
+```
+      
+# redis
+> session 데이터를 저장하는 곳. express-session을 사용할 때 session값을 메모리 스토어에 저장하는데 이는 서버를 재시작하면 저장된 내용들이 모두 날아감. 때문에 서버를 재시작해도 데이터를 유지할 수 있는 방법을 찾아야 함. 레디스는 데이터베이스라서 데이터도 어느 정도 유지되고, 데이터를 불러올 때 메모리에 로드해서 속도가 빠름.
+### 설치
+`npm install redis`  
+redis와 express-session을 연결해주는 `connect-redis`또한 추가적으로 설치해줘야 한다.  
+`npm install connect-redis`  
+### 시작
+```javascript
+const express = require('express')
+const session = require('session')
+const redis = require('redis')
+const connectRedis = require('connect-redis')
+
+const client = redis.createClient({host:'localhost', port:6379})
+const redisStore = connectRedis(session)
+
+//세션의 저장소로 지정
+app.use(session({
+  ... //session option
+  ,store:new redisStore({
+    client
+    })
+}))
+```
