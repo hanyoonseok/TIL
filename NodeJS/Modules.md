@@ -189,4 +189,26 @@ app.use(session({
     client
     })
 }))
+```     
+서버쪽 우분투 접속 후  
+
+```
+//설치
+sudp apt-get update
+sudo apt-get install redis-server
+
+//시작
+redis-server
+
+//redis 기본포트 확인 
+netstat -npat | grep redis 
+
+//접속확인
+redis-cli 
+set keys values
+keys * 
+
+//외부접속허용설정
+/etc/redis/redis.conf 에 접속하여 
+bind 127.0.0.1 -> bind 0.0.0.0 으로 수정
 ```
