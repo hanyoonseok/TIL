@@ -20,3 +20,6 @@
 - css 파일의 중복 적용을 피할 수 있음.
 - props 값을 스타일링 할 때 그대로 사용 가능.
 - `styled-components-breakpoint`로 미디어 쿼리 대응 가능.
+
+## 데이터관리
+- 데이터를 관리할 각 컴포넌트에 `constants.js` 추가하여 관리
