@@ -2,7 +2,7 @@
 
 ### 설치
 `npm install styled-components`
-
+***
 ### 적용
 ```jsx
 import React from 'react';
@@ -24,3 +24,57 @@ function App() {
 }
 export default App;
 ```
+***
+### ThemeProvider
+> `ThemeProvider`로 감싸진 자식 Component들은 ThemeProvider로 전달받은 theme를 props로 전달받아서 사용이 가능.
+```jsx
+//App.js
+import React from "react";
+import { ThemeProvider } from "styled-components";
+
+const App = () => {
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <Search />
+        <IntroBooks />
+      </ThemeProvider>
+    </div>
+  );
+};
+```
+```jsx
+//theme.js
+const calcRem = (size) => `${size / 16}rem`;
+
+const fontSizes = {
+  small: calcRem(14),
+  base: calcRem(16),
+  lg: calcRem(18),
+  titleSize: calcRem(50),
+};
+
+const colors = {
+  black: "#000000",
+  white: "#FFFFFF",
+  gray_1: "#222222",
+};
+
+const theme = {
+  fontSizes,
+  colors,
+};
+
+export default theme;
+```
+```jsx
+const NavbarWrapper = styled.div`
+  // ${}를 사용해서 인자로 theme의 값을 받을 수 있고 원하는 theme의 요소를 사용할 수 있음.
+  
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  color: ${({ theme }) => theme.colors.gray_1};
+`;
+```
+[기타 사용법 참고](https://velog.io/@hoi/Styled-components-ThemeProvider%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%8A%A4%ED%83%80%EC%9D%BC-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95)
+***
