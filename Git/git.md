@@ -34,6 +34,10 @@ git remote add origin(저장소명) url
 ```
 git add . //변경사항 모두 추가
 ```
+### git pull
+```
+git pull origin(원격저장소명) dev(브랜치명) //브랜치 내용 
+```
 
 ### git commit
 > staging area에 있는 현재까지의 변경사항을 확정.
