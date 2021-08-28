@@ -52,3 +52,8 @@ function counter(state, action) {
 > 함수 형태의 값을 파라미터로 받아옴.
 - 파라미터로 특정 함수 전달해주면, 액션이 dispatch 되었을 때 마다 전달해준 함수 호출.
 - 보통 react-redux 라이브러리에서 제공하는 `connect` 또는 `useSelector` hook을 사용하여 리덕스 스토어 상태에 구독
+
+### redux-thunk
+> 리덕스에서 비동기 작업을 처리할 때 사용하는 미들웨어
+> 액션객체가 아닌 함수를 디스패치 가능
+- 미들웨어 사용 시 `dispatch`와 `getState` 파라미터로 받아야 함.
