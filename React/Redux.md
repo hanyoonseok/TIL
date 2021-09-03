@@ -4,8 +4,12 @@
 - 프로젝트 규모가 클 때
 - 비동기 작업을 자주 할 때
 - 리덕스 사용이 편리할 때 사용
-<img width="100%" src="https://image.slidesharecdn.com/006-170302100440/95/006-react-redux-framework-5-638.jpg?cb=1488450003" >
-<img width="100%" src="https://image.slidesharecdn.com/006-170302100440/95/006-react-redux-framework-6-638.jpg?cb=1488450003" >
+<img width="80%" src="https://image.slidesharecdn.com/006-170302100440/95/006-react-redux-framework-5-638.jpg?cb=1488450003" >
+<img width="80%" src="https://image.slidesharecdn.com/006-170302100440/95/006-react-redux-framework-6-638.jpg?cb=1488450003" >  
+
+#### 구조
+- `flux`구조
+<img width="80%" src="https://miro.medium.com/max/798/1*oRBseHE_yxtlbcRTrbkRnQ.png" >
 
 ### 적용
 > `react-redux` 라이브러리 사용
@@ -84,10 +88,6 @@ const store = createStore(rootReducer);
 > 함수 형태의 값을 파라미터로 받아옴.
 - 파라미터로 특정 함수 전달해주면, 액션이 dispatch 되었을 때 마다 전달해준 함수 호출.
 - 보통 react-redux 라이브러리에서 제공하는 `connect` 또는 `useSelector` hook을 사용하여 리덕스 스토어 상태에 구독
-
-#### 흐름
-`view`안의 로그인 폼에서 로그인 클릭(action) -> `dispatcher`를 통해 `store`로 이동 -> 스토어 안의 리듀서로 가기 전 `미들웨어`에서 action 조작
--> `리듀서`에서 데이터 처리 -> view
 
 ### redux-thunk
 > 리덕스에서 비동기 작업을 처리할 때 사용하는 미들웨어
