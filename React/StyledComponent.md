@@ -78,3 +78,6 @@ const NavbarWrapper = styled.div`
 ```
 [기타 사용법 참고](https://velog.io/@hoi/Styled-components-ThemeProvider%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%8A%A4%ED%83%80%EC%9D%BC-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95)
 ***
+
+### SSR
+> `styled-components`는 서버사이드렌더링 시에 따로 설정해주어야 적용이 된다.
