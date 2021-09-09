@@ -134,11 +134,6 @@ import {useSelector} from 'react-redux';
 const isLoggedIn = useSelector((state)=>state.user.isLoggedIn);
 ```
 
-### redux-thunk
-> 리덕스에서 비동기 작업을 처리할 때 사용하는 미들웨어
-> 액션객체가 아닌 함수를 디스패치 가능
-- 미들웨어 사용 시 `dispatch`와 `getState` 파라미터로 받아야 함.
-
 ### 규칙
 - 상태는 읽기전용이다.
 > 기존의 상태를 건들이지 않고 불변성을 유지해주어야 함. 왜냐하면 내부적으로 데이터 변경을 감지하기 위해 shallow equality를 검사하기 때문. 겉핥기 식으로 비교를 하기 때문에 좋은 성능 유지 가능.
