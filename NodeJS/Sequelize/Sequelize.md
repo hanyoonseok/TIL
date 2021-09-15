@@ -75,8 +75,8 @@ models.sequelize.sync().then( () => {
 `sync()`를 통해 mysql에 연결    
 
 ## 관계형
-- hasMany
-예를 들어, 한 유저가 게시글을 여러 개 게시할 수 있음. 하지만 한 게시글은 한 명의 작성자만 있을 수 있음.
+#### hasMany  
+`1:N 관계`. 예를 들어, 한 유저가 게시글을 여러 개 게시할 수 있음. 하지만 한 게시글은 한 명의 작성자만 있을 수 있음.
 ```javascript
 // model/user.js
 ... sequelize code
@@ -91,4 +91,24 @@ Post.associate=(db)=>{
   db.Post.belongsTo(db.User); // 한 게시글의 작성자는 한 명의 유저이다.
 }
 ```
-`belongTo`를 통해 관계를 지정하면 `posts`테이블에 `UserId`라는 고유한 column이 생성된다.
+- `belongTo`를 통해 관계를 지정하면 `posts`테이블에 `UserId`라는 고유한 column이 생성된다.  
+
+#### belongsToMany  
+`N:N` 관계일 때를 말한다.
+```javascript
+// model/post.js
+... sequelize code
+Post.associate=(db)=>{
+  db.Post.belongsToMany(db.Hashtag);
+}
+```
+```jsx
+// model/hashtag.js
+... sequelize code
+Hashtag.associate=(db)=>{
+  db.Hashtag.belongsToMany(db.Post); // 한 게시글의 작성자는 한 명의 유저이다.
+}
+```
+- `belongsToMany`를 통해 관계를 지정하면 `PostHashtag`라는 테이블이 생성되고, 그 안에서 각각을 매칭하는 행들이 생성됨.
+- `through`를 통해 테이블 명을 지정해줄 수 있음.
+- 같은 테이블간 `belongsToMany`는 `foreignKey`를 따로 지정해주어야 한다.
