@@ -73,3 +73,22 @@ models.sequelize.sync().then( () => {
 }
 ```  
 `sync()`를 통해 mysql에 연결    
+
+## 관계형
+- hasMany
+예를 들어, 한 유저가 게시글을 여러 개 게시할 수 있음. 하지만 한 게시글은 한 명의 작성자만 있을 수 있음.
+```javascript
+// model/user.js
+... sequelize code
+User.associate=(db)=>{
+  db.User.hasMany(db.Post);
+}
+```
+```jsx
+// model/post.js
+... sequelize code
+Post.associate=(db)=>{
+  db.Post.belongsTo(db.User); // 한 게시글의 작성자는 한 명의 유저이다.
+}
+```
+`belongTo`를 통해 관계를 지정하면 `posts`테이블에 `UserId`라는 고유한 column이 생성된다.
