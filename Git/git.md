@@ -98,3 +98,20 @@ git stash drop //가장 최근의 stash 제거
 ```
 git stash pop // apply + drop
 ```
+
+### 커밋 취소
+> 아직 푸쉬하지 않은 커밋을 취소하거나, 이전 커밋상태로 되돌아가기
+- 변경내역은 유지, 커밋만 취소 
+```jsx
+git log //커밋한 로그 확인
+git reset --soft [로그에서 확인한 돌아갈 커밋아이디] //현재까지 변경내역은 그대로, 커밋만 취소
+```
+- 아예 이전 커밋상태로 되돌아가기(현재까지 변경내역 삭제)
+```jsx
+git log
+git reset --hard [로그에서 확인한 돌아갈 커밋아이디]
+```
+- git add 취소
+```jsx
+git reset HEAD [파일명] //파일명 안 붙이면 모든 add 취소
+```
