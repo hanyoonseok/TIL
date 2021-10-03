@@ -1,4 +1,7 @@
 # redux-saga
+> redux 사용시 발생 가능한 부작용을 쉽게 관리하고자 사용하는 라이브러리  
+> 부작용은 비동기 로직, axios call, request success/fail 처리 등이 있음.
+
 ### 설치
 `npm install redux-saga`
 
