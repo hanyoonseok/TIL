@@ -67,8 +67,9 @@ Related to: #46, #34
 
 ### 커밋 템플릿
 > git commit 메시지를 정해진 양식에 따라 작성할 수 있게 도와줌  
-1. 커밋 메시지 템플릿 적용할 git 프로젝트에 진입 후 `.gitmessage.txt`파일 생성
-2. 아래의 양식을 파일에 추가
+> [참고](https://chanhuiseok.github.io/posts/git-4/)
+- 커밋 메시지 템플릿 적용할 git 프로젝트에 진입 후 `.gitmessage.txt`파일 생성
+- 아래의 양식을 파일에 추가
 ```
 # TITLE
 # <타입>: <제목> (최대 50자)
@@ -106,6 +107,6 @@ Related to: #46, #34
 # ex) Resolves:#123 Ref:#456 Related to :#48, #5
 ################
 ```
-3. `git config --global commit.template .gitmessage.txt` 명령어 입력
-4. 커밋시 `git commit`으로 실행
-5. `vi 에디터` 나오면 `i`키를 눌러 수정 시작, 다 작성 후 `:wq!`입력 후 엔터
+- `git config --global commit.template .gitmessage.txt` 명령어 입력
+- 커밋시 `git commit`으로 실행
+- `vi 에디터` 나오면 `i`키를 눌러 수정 시작, 다 작성 후 `:wq!`입력 후 엔터
