@@ -10,6 +10,7 @@
 - develop : 개발 버전 작업물
 - feature: 기능 개발 브랜치(issue 단위). 새로운 기능 개발시 브랜치명을 `feature/이슈번호`로 생성 후 해당 브랜치에서 개발
     - ex) 이슈번호가 3번일 때 브랜치 명은 `feature/3`
+    - 브랜치 생성시 `git checkout -b feature/$ develop`으로 생성하여 develop브랜치에서 분기.
 
 ### Commit Message Convention에 따른 commit/push
 - 정해진 커밋 메시지 컨벤션에 따라 메시지 작성
