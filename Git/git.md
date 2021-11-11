@@ -116,3 +116,5 @@ git reset --hard [로그에서 확인한 돌아갈 커밋아이디]
 ```jsx
 git reset HEAD [파일명] //파일명 안 붙이면 모든 add 취소
 ```
+
+[git 실습해보기](https://learngitbranching.js.org/?locale=ko)
