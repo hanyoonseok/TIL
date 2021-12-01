@@ -100,7 +100,10 @@ git stash pop // apply + drop
 ```
 **feat브랜치에서 작업할 내용을 master에서 작업해버렸을 때**
 ```
-
+//master branch에서
+git stash push
+git checkout feat
+git stash pop
 ```
 
 ### 커밋 취소
