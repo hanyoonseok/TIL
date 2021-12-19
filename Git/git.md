@@ -98,11 +98,13 @@ git stash drop //가장 최근의 stash 제거
 ```
 git stash pop // apply + drop
 ```
+
 **feat브랜치에서 작업할 내용을 master에서 작업해버렸을 때**
+
 ```
 //master branch에서
 git stash push
-git checkout feat
+git checkout [이동할 브랜치]
 git stash pop
 ```
 
@@ -122,11 +124,6 @@ git reset --hard [로그에서 확인한 돌아갈 커밋아이디]
 - git add 취소
 ```jsx
 git reset HEAD [파일명] //파일명 안 붙이면 모든 add 취소
-```
-//master branch
-git stash push
-git checkout [이동할 브랜치]
-git stash pop
 ```
 
 [git 실습해보기](https://learngitbranching.js.org/?locale=ko)
