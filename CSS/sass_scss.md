@@ -117,3 +117,4 @@ $pink: #f06595;
 ```
 
 [참고](https://react.vlpt.us/styling/01-sass.html)
+[문법정리](https://seokzin.tistory.com/entry/SCSS-SCSS-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC)
